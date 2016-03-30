@@ -34,9 +34,6 @@ gem 'unicorn'
 # Use haml as templating engine for HTML.
 gem 'haml'
 
-# Use bourbon as a simple and lightweight mixin library for Sass.
-gem 'bourbon'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a
   # debugger console
