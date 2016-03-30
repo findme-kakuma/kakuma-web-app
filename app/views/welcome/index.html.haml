@@ -1,7 +1,12 @@
-.container
+.container-fluid
   .row
-    %h4.col-xs-12 Welcome to 'Kaku Match' application !
+    %h4.col-xs-12
+      Kaku Match
+      %i application !
 
   .row
-    .col-xs-offset-2.col-xs-8
-      %span Choose a language :
+    .col-xs-12.btn-group-vertical.btn-group-lg
+      - I18n.available_locales.each do |locale|
+        = link_to (t :i_speak_my_language, locale: locale),
+                  your_profile_path(locale: locale),
+                  class: 'btn btn-secondary'
