@@ -34,6 +34,9 @@ gem 'unicorn'
 # Use haml as templating engine for HTML.
 gem 'haml'
 
+# Bootstrap 4 ruby gem for Ruby on Rails (Sprockets) and Compass.
+gem 'bootstrap', '~> 4.0.0.alpha3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a
   # debugger console
