@@ -8,5 +8,5 @@
     .col-xs-12.btn-group-vertical.btn-group-lg
       - I18n.available_locales.each do |locale|
         = link_to (t :i_speak_my_language, locale: locale),
-                  your_profile_path(locale: locale),
+                  workflow_path(locale: locale, id: :your_profile),
                   class: 'btn btn-secondary'

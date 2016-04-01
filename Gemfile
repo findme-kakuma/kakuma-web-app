@@ -25,6 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Figaro was written to make it easy to securely configure Rails applications.
+gem 'figaro'
+
 # Use Unicorn as the app server
 gem 'unicorn'
 
@@ -41,6 +44,13 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
+
+# Use wicked to make your Rails controllers into step-by-step wizards.
+gem 'wicked'
+
+# Simple Form aims to be as flexible as possible while helping you with
+# powerful components to create your forms.
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a

@@ -1,0 +1,12 @@
+.navigator {
+  .finished {
+    color: green;
+  }
+  .current {
+    color: blue;
+    text-decoration: underline;
+  }
+  .unfinished {
+    color: grey;
+  }
+}
