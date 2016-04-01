@@ -37,13 +37,9 @@ gem 'unicorn'
 # Use haml as templating engine for HTML.
 gem 'haml'
 
-# Bootstrap 4 ruby gem for Ruby on Rails (Sprockets) and Compass.
-gem 'bootstrap', '~> 4.0.0.alpha3'
-
-# Bootstrap 4 : Tooltips and popovers depend on tether for positioning.
-source 'https://rails-assets.org' do
-  gem 'rails-assets-tether', '>= 1.1.0'
-end
+# bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop
+# right into your Sass powered applications.
+gem 'bootstrap-sass', '~> 3.3.6'
 
 # Use wicked to make your Rails controllers into step-by-step wizards.
 gem 'wicked'

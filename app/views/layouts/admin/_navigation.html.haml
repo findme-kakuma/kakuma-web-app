@@ -1,0 +1,15 @@
+%nav.navbar.navbar-fixed-top.navbar-dark.bg-inverse
+
+  %button.navbar-toggler.hidden-sm-up.pull-xs-left{"data-target" => "#collapsingNavbar", "data-toggle" => "collapse", :type => "button"}
+    \☰
+  %a.navbar-brand{href: "#"} Responsive navbar
+  #collapsingNavbar.collapse.navbar-toggleable-xs
+    %ul.nav.navbar-nav
+      %li.nav-item.active
+        = link_to 'Responsive navbar', '#', class: 'nav-link'
+      %li.nav-item
+        = link_to 'Features', '#', class: 'nav-link'
+      %li.nav-item
+        = link_to 'Pricing', '#', class: 'nav-link'
+      %li.nav-item
+        = link_to 'About', '#', class: 'nav-link'
