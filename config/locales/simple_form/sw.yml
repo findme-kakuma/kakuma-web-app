@@ -1,15 +1,15 @@
-en:
+sw:
   simple_form:
-    "yes": 'Yes'
-    "no": 'No'
+    "yes": 'Ndiyo'
+    "no": 'Hakuna'
     required:
-      text: 'required'
+      text: 'anahitajika'
       mark: '*'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Please review the problems below:"
+      default_message: "Tafadhali kupitia matatizo hapa chini:"
     # Examples
     # labels:
     #   defaults:
@@ -29,3 +29,11 @@ en:
     # prompts:
     #   defaults:
     #     age: 'Select your age'
+
+    labels:
+      resident:
+        first_name: Jina la kwanza
+        last_name: Jina la familia
+        nickname: Jina la utani
+        country_id: Nchi
+        place: Mji

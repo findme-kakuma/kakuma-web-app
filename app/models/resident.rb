@@ -3,6 +3,7 @@ class Resident < ActiveRecord::Base
 
   validates :first_name,
             :last_name,
-            :nickname,
+            :country_id,
+            :place,
             presence: true
 end

@@ -1,2 +1,24 @@
-%div{style: "height: 1111px;"}
-sdglhsdfkjdb
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= t :'resident.first_name'
+        %th= t :'resident.last_name'
+        %th= t :'resident.nickname'
+        %th= t :'country.name'
+        %th= t :'resident.place'
+        %th
+    %tbody
+      - @residents.each do |resident|
+        %tr
+          %td= resident.first_name
+          %td= resident.last_name
+          %td= resident.nickname
+          %td= resident.country.try(:name)
+          %td= resident.place
+          %td
+            = link_to [:admin, resident],                      |
+                class: "btn btn-danger btn-xs",                |
+                method: :delete,                               |
+                data: { confirm: (t :confirmation_delete) } do |
+              %span.glyphicon.glyphicon-trash

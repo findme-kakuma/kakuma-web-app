@@ -7,4 +7,8 @@
     = csrf_meta_tags
   %body
     = render partial: 'layouts/admin/navigation'
-    = yield
+    .container-fluid
+      = yield
+
+- if Rails.env.development?
+  - console

@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   constraints subdomain: 'admin' do
     scope module: 'admin', as: 'admin' do
       root to: 'residents#index'
-      resources :countries
-      resources :residents
+      resources :countries, only: :index
+      resources :residents, only: [:index, :destroy]
     end
   end
 

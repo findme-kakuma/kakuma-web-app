@@ -1,15 +1,18 @@
-%nav.navbar.navbar-fixed-top.navbar-dark.bg-inverse
-
-  %button.navbar-toggler.hidden-sm-up.pull-xs-left{"data-target" => "#collapsingNavbar", "data-toggle" => "collapse", :type => "button"}
-    \☰
-  %a.navbar-brand{href: "#"} Responsive navbar
-  #collapsingNavbar.collapse.navbar-toggleable-xs
-    %ul.nav.navbar-nav
-      %li.nav-item.active
-        = link_to 'Responsive navbar', '#', class: 'nav-link'
-      %li.nav-item
-        = link_to 'Features', '#', class: 'nav-link'
-      %li.nav-item
-        = link_to 'Pricing', '#', class: 'nav-link'
-      %li.nav-item
-        = link_to 'About', '#', class: 'nav-link'
+%nav.navbar.navbar-inverse.navbar-fixed-top
+  .container-fluid
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#navigation-navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to 'Kaku Match', admin_root_path, class: 'navbar-brand'
+    / Collect the nav links, forms, and other content for toggling
+    #navigation-navbar-collapse.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        = nav_link "residents", admin_residents_path
+        = nav_link "countries", admin_countries_path
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to 'front', root_url(subdomain: nil), target: '_blank'
