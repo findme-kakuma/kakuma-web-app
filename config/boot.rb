@@ -4,10 +4,14 @@ require 'bundler/setup' # Set up gems listed in the Gemfile.
 
 module Rails
   require 'rails/commands/server'
-  if Rails.env.development? && Figaro.env.port?
+  if Rails.env.development?
     class Server
       def default_options
-        super.merge(Host:  '0.0.0.0', Port: Figaro.env.port)
+        if Figaro.env.port?
+          super.merge(Host:  '0.0.0.0', Port: Figaro.env.port)
+        else
+          super
+        end
       end
     end
   end
