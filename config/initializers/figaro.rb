@@ -1,1 +1,1 @@
-Figaro.require_keys('port') if Rails.env.development?
+# Figaro.require_keys('port') if Rails.env.development?
