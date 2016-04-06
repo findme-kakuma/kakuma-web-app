@@ -1,0 +1,24 @@
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= Resident.human_attribute_name :first_name
+        %th= Resident.human_attribute_name :last_name
+        %th= Resident.human_attribute_name :nickname
+        %th= Country.human_attribute_name :name
+        %th= Resident.human_attribute_name :place
+        %th
+    %tbody
+      - @residents.each do |resident|
+        %tr
+          %td= resident.first_name
+          %td= resident.last_name
+          %td= resident.nickname
+          %td= resident.country.try(:name)
+          %td= resident.place
+          %td
+            = link_to [:admin, resident],                      |
+                class: "btn btn-danger btn-xs",                |
+                method: :delete,                               |
+                data: { confirm: (t :confirmation_delete) } do |
+              %span.glyphicon.glyphicon-trash

@@ -1,0 +1,11 @@
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= Country.human_attribute_name :name
+        %th= t :nb_of_residents
+    %tbody
+      - @countries.each do |country|
+        %tr
+          %td= country.name
+          %td= country.residents.count

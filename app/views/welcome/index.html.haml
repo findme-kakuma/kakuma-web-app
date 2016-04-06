@@ -1,12 +1,12 @@
-.container-fluid
-  .row
-    %h4.col-xs-12
-      Kaku Match
-      %i application !
+.row
+  %h4.col-xs-12
+    %i Kaku
+    %b Ma
+    %i tch
 
-  .row
-    .col-xs-12.btn-group-vertical.btn-group-lg
-      - I18n.available_locales.each do |locale|
-        = link_to (t :i_speak_my_language, locale: locale),
-                  your_profile_path(locale: locale),
-                  class: 'btn btn-secondary'
+.row
+  .col-xs-12.btn-group-vertical.btn-group-lg{ role: 'group' }
+    - I18n.available_locales.each do |locale|
+      = link_to (t :i_speak_my_language, locale: locale),
+                workflow_path(locale: locale, id: :your_profile),
+                class: 'btn btn-default'

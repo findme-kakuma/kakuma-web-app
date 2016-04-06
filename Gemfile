@@ -25,6 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Figaro was written to make it easy to securely configure Rails applications.
+gem 'figaro'
+
 # Use Unicorn as the app server
 gem 'unicorn'
 
@@ -34,13 +37,20 @@ gem 'unicorn'
 # Use haml as templating engine for HTML.
 gem 'haml'
 
-# Bootstrap 4 ruby gem for Ruby on Rails (Sprockets) and Compass.
-gem 'bootstrap', '~> 4.0.0.alpha3'
+# bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop
+# right into your Sass powered applications.
+gem 'bootstrap-sass', '~> 3.3.6'
 
-# Bootstrap 4 : Tooltips and popovers depend on tether for positioning.
-source 'https://rails-assets.org' do
-  gem 'rails-assets-tether', '>= 1.1.0'
-end
+# Use wicked to make your Rails controllers into step-by-step wizards.
+gem 'wicked'
+
+# Simple Form aims to be as flexible as possible while helping you with
+# powerful components to create your forms.
+gem 'simple_form'
+
+# Globalize builds on the I18n API in Ruby on Rails to add model translations to
+# ActiveRecord models.
+gem 'globalize', '~> 5.0.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a

@@ -1,7 +1,17 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+[
+  { en: 'South Sudan', sw: 'Sudan Kusini' },
+  { en: 'Sudan',       sw: 'Sudan' },
+  { en: 'Somalia',     sw: 'Somalia' },
+  { en: 'Ethiopia',    sw: 'Ethiopia' },
+  { en: 'D.R. Congo',  sw: 'J.K. Kongo' },
+  { en: 'Burundi',     sw: 'Burundi' },
+  { en: 'Rwanda',      sw: 'Rwanda' },
+  { en: 'Eritrea',     sw: 'Eritrea' },
+  { en: 'Uganda',      sw: 'Uganda' }
+].each do |country|
+  c = Country.new(name: country[:en])
+  c.update_attributes(
+    name: country[:sw],
+    locale: :sw
+  )
+end
