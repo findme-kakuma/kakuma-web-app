@@ -1,10 +1,9 @@
-.container-fluid
-  = render partial: 'progress_bar'
+= render partial: 'header'
 
-  = simple_form_for @resident, url: wizard_path do |form|
-    = form.input :first_name
-    = form.input :last_name
-    = form.input :nickname
-    = form.input :country_id, collection: Country.all
-    = form.input :place
-    = form.button :submit, 'Next', class: 'pull-right'
+= simple_form_for @resident, url: wizard_path do |form|
+  = form.input :first_name
+  = form.input :last_name
+  = form.input :nickname
+  = form.input :country_id, collection: Country.all
+  = form.input :place
+  = form.button :submit, 'Next', class: 'pull-right'

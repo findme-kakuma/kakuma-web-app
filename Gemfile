@@ -48,6 +48,10 @@ gem 'wicked'
 # powerful components to create your forms.
 gem 'simple_form'
 
+# Globalize builds on the I18n API in Ruby on Rails to add model translations to
+# ActiveRecord models.
+gem 'globalize', '~> 5.0.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a
   # debugger console

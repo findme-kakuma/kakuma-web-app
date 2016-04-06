@@ -1,0 +1,17 @@
+sw:
+  activerecord:
+    models:
+      country: Nchi
+      resident: Mkazi
+
+    attributes:
+      country:
+        name: Jina
+      resident:
+        first_name: Jina la kwanza
+        last_name: Jina la familia
+        nickname: Jina la utani
+        country_id: Nchi
+        place: Mji
+        father_name: Jina la Baba
+        grandfather_name: Jina Babu

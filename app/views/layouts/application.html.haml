@@ -2,11 +2,12 @@
 %html
   %head
     / Required meta tags always come first
-    %meta{name: "viewport", content: "width=device-width, initial-scale=1, shrink-to-fit=no"}
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no'}
 
     %title KakuMatch
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = yield
+    .container-fluid
+      = yield

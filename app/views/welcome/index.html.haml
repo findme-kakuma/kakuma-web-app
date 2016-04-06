@@ -1,13 +1,12 @@
-.container-fluid
-  .row
-    %h4.col-xs-12
-      %i Kaku
-      %b Ma
-      %i tch
+.row
+  %h4.col-xs-12
+    %i Kaku
+    %b Ma
+    %i tch
 
-  .row
-    .col-xs-12.btn-group-vertical.btn-group-lg{ role: 'group' }
-      - I18n.available_locales.each do |locale|
-        = link_to (t :i_speak_my_language, locale: locale),
-                  workflow_path(locale: locale, id: :your_profile),
-                  class: 'btn btn-default'
+.row
+  .col-xs-12.btn-group-vertical.btn-group-lg{ role: 'group' }
+    - I18n.available_locales.each do |locale|
+      = link_to (t :i_speak_my_language, locale: locale),
+                workflow_path(locale: locale, id: :your_profile),
+                class: 'btn btn-default'

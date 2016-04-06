@@ -2,11 +2,11 @@
   %table.table.table-striped
     %thead
       %tr
-        %th= t :'resident.first_name'
-        %th= t :'resident.last_name'
-        %th= t :'resident.nickname'
-        %th= t :'country.name'
-        %th= t :'resident.place'
+        %th= Resident.human_attribute_name :first_name
+        %th= Resident.human_attribute_name :last_name
+        %th= Resident.human_attribute_name :nickname
+        %th= Country.human_attribute_name :name
+        %th= Resident.human_attribute_name :place
         %th
     %tbody
       - @residents.each do |resident|

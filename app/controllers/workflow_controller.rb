@@ -49,7 +49,9 @@ class WorkflowController < ApplicationController
       :last_name,
       :nickname,
       :country_id,
-      :place
+      :place,
+      :father_name,
+      :grandfather_name
     )
   end
 end

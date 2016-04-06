@@ -2,7 +2,7 @@
   %table.table.table-striped
     %thead
       %tr
-        %th= t :'country.name'
+        %th= Country.human_attribute_name :name
         %th= t :nb_of_residents
     %tbody
       - @countries.each do |country|

@@ -1,0 +1,9 @@
+.row
+  .pull-left
+    = workflow_progress_bar
+
+  .pull-right.btn-group.btn-group-xs{ role: 'group' }
+    - I18n.available_locales.each do |l|
+      = link_to l,
+                wizard_path(step, locale: l),
+                class: "btn btn-default #{l == I18n.locale ? 'active' : ''}"
