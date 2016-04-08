@@ -9,8 +9,9 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
 
-  scope '/:locale', locale: /en|sw/ do
+  scope '(:locale)', locale: /en|sw/ do
     resources :workflow, only: [:show, :update]
     post '/workflow/:id', to: 'workflow#create'
+    resources :residents, only: [:show]
   end
 end

@@ -8,7 +8,7 @@ module Rails
     class Server
       def default_options
         if Figaro.env.port?
-          super.merge(Host:  '0.0.0.0', Port: Figaro.env.port)
+          super.merge(Host: '0.0.0.0', Port: Figaro.env.port)
         else
           super
         end
