@@ -1,14 +1,14 @@
 class WorkflowController < ApplicationController
   include Wicked::Wizard
 
-  if Rails.env.development?
-    steps :reset_session,
-          :your_profile,
-          :your_family
-  else
-    steps :your_profile,
-          :your_family
-  end
+  STEPS = %I(
+    #{'reset_session' if Rails.env.development?}
+    your_profile
+    your_family
+    your_phone_number
+  ).reject(&:empty?).freeze
+
+  steps(*STEPS)
 
   def show
     load_resident
@@ -37,6 +37,16 @@ class WorkflowController < ApplicationController
 
   private
 
+  def finish_wizard_path
+    load_resident
+    if @resident.persisted?
+      session[:resident_id] = nil
+      resident_path(@resident)
+    else
+      root_path
+    end
+  end
+
   def load_resident
     @resident = (
       session[:resident_id] && Resident.find_by(id: session[:resident_id])
@@ -51,7 +61,8 @@ class WorkflowController < ApplicationController
       :country_id,
       :place,
       :father_name,
-      :grandfather_name
+      :grandfather_name,
+      :phone_number
     )
   end
 end

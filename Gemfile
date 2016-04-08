@@ -52,6 +52,11 @@ gem 'simple_form'
 # ActiveRecord models.
 gem 'globalize', '~> 5.0.0'
 
+# This small Gem adds useful methods to your Rails app to validate, display and
+# save phone numbers. It uses the super awesome Phony gem
+# (https://github.com/floere/phony).
+gem 'phony_rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a
   # debugger console

@@ -205,6 +205,7 @@ sw:
       less_than_or_equal_to: 'z/iwe sawa na, ama chini ya {{count}}'
       odd: 'z/iwe witiri'
       even: 'z/iwe shufwa'
+      improbable_phone: 'ni idadi batili'
 
   activerecord:
     errors:
