@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  constraints subdomain: 'admin' do
-    scope module: 'admin', as: 'admin' do
-      root to: 'residents#index'
-      resources :countries, only: :index
-      resources :residents, only: [:index, :destroy]
-    end
-  end
+  # constraints subdomain: 'admin' do
+  #   scope module: 'admin', as: 'admin' do
+  #     root to: 'residents#index'
+  #     resources :countries, only: :index
+  #     resources :residents, only: [:index, :destroy]
+  #   end
+  # end
 
   root to: 'welcome#index'
 
@@ -13,5 +13,11 @@ Rails.application.routes.draw do
     resources :workflow, only: [:show, :update]
     post '/workflow/:id', to: 'workflow#create'
     resources :residents, only: [:show]
+
+    namespace 'admin' do
+      root to: 'residents#index'
+      resources :countries, only: :index
+      resources :residents, only: [:index, :destroy]
+    end
   end
 end

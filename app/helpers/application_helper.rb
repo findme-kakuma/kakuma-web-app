@@ -1,15 +1,14 @@
 module ApplicationHelper
   def nav_link(link_text, link_path, http_method = nil)
     is_current_page = current_page?(link_path)
-    if !is_current_page && current_page?('/')
+    unless is_current_page
       lp = if link_path =~ /\A#{URI.regexp(%w(http https))}\z/
              link_path
            else
              request.base_url + link_path
            end
-      is_current_page = url_for(
-        Rails.application.routes.recognize_path(lp)
-      ) == '/'
+      is_current_page = Rails.application.routes.recognize_path(url_for) ==
+                        Rails.application.routes.recognize_path(lp)
     end
 
     if is_current_page
