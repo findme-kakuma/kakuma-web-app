@@ -5,6 +5,7 @@ class WorkflowController < ApplicationController
     #{'reset_session' if Rails.env.development?}
     your_profile
     your_family
+    your_search
     your_phone_number
   ).reject(&:empty?).freeze
 
@@ -18,6 +19,10 @@ class WorkflowController < ApplicationController
       jump_to next_step
     when :your_profile
     when :your_family
+      jump_to previous_step unless @resident.persisted?
+    when :your_search
+      jump_to previous_step unless @resident.persisted?
+    when :your_phone_number
       jump_to previous_step unless @resident.persisted?
     end
     render_wizard
