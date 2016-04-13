@@ -3,7 +3,12 @@ module WorkflowHelper
     content_tag(:section, class: 'content') do
       content_tag(:div, class: 'navigator') do
         content_tag(:ol) do
-          wizard_steps.delete_if {|step| step == :reset_session}.collect do |every_step|
+          (wizard_steps.delete_if do |step|
+            [
+              :reset_session,
+              :proposal_for_new_search
+            ].include? step
+          end).collect do |every_step|
             class_str = 'unfinished'
             class_str = 'current'  if every_step == step
             class_str = 'finished' if past_step?(every_step)
