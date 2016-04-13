@@ -1,8 +1,8 @@
 = simple_form_for @resident, url: wizard_path do |form|
-  = form.simple_fields_for :relationships_targets, @relationship do |relationship_form|
-    = relationship_form.input :type_of_relationship, collection: Relationship::TYPES
-    = relationship_form.simple_fields_for :target do |target_form|
-      = render partial: 'profile_form', locals: {form: target_form}
+  = form.simple_fields_for :relationships_targets, @relationship do |rs_form|
+    = rs_form.input :type_of_relationship, collection: Relationship::TYPES
+    = rs_form.simple_fields_for :target do |target_form|
+      = render partial: 'profile_form', locals: { form: target_form }
       = target_form.input :father_name
       = target_form.input :grandfather_name
   = form.button :submit, 'Next', class: 'pull-right'

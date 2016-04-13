@@ -41,7 +41,9 @@ class WorkflowController < ApplicationController
   def update
     load_resident
     @resident.assign_attributes permited_params
+    @relationship = @resident.relationships_targets.last
     render_wizard @resident
+    session[:force_new_search] = nil unless @resident.changed?
   end
 
   private
