@@ -6,6 +6,7 @@ class WorkflowController < ApplicationController
     your_profile
     your_family
     your_search
+    proposal_for_new_search
     your_phone_number
   ).reject(&:empty?).freeze
 
@@ -16,12 +17,15 @@ class WorkflowController < ApplicationController
     case step
     when :reset_session
       session[:resident_id] = nil
+      session[:force_new_search] = nil
       jump_to next_step
     when :your_profile
     when :your_family
       jump_to previous_step unless @resident.persisted?
     when :your_search
       jump_to previous_step unless @resident.persisted?
+      load_relationship
+    when :proposal_for_new_search
     when :your_phone_number
       jump_to previous_step unless @resident.persisted?
     end
@@ -58,6 +62,20 @@ class WorkflowController < ApplicationController
     ) || Resident.new
   end
 
+  def load_relationship
+    session[:force_new_search] = params[:force_new_search] if params.key? :force_new_search
+    @relationship = (
+      (
+        session[:force_new_search] != 'true' ||
+        (
+          @resident.relationships_targets.last.present? &&
+          !@resident.relationships_targets.last.persisted?
+        )
+      ) &&
+      @resident.relationships_targets.last
+    ) || @resident.relationships_targets.build(target: Resident.new)
+  end
+
   def permited_params
     params.require(:resident).permit(
       :first_name,
@@ -67,7 +85,21 @@ class WorkflowController < ApplicationController
       :place,
       :father_name,
       :grandfather_name,
-      :phone_number
+      :phone_number,
+      relationships_targets_attributes: [
+        :id,
+        :type_of_relationship,
+        target_attributes: [
+          :id,
+          :first_name,
+          :last_name,
+          :nickname,
+          :country_id,
+          :place,
+          :father_name,
+          :grandfather_name
+        ]
+      ]
     )
   end
 end
