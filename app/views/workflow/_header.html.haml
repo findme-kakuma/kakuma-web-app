@@ -1,10 +1,7 @@
-.row
-  .col-xs-12
-    .pull-left
-      = workflow_progress_bar
-
-    .pull-right.btn-group.btn-group-xs{ role: 'group' }
-      - I18n.available_locales.each do |l|
-        = link_to l,
-                  wizard_path(step, locale: l),
-                  class: "btn btn-default #{l == I18n.locale ? 'active' : ''}"
+.row.header
+    .col-xs-12
+        %a.workflow-back
+        %span.workflow-which-step 1 of 3
+        %h3 Lorem ipsum
+        .pull-left
+            = workflow_progress_bar
