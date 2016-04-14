@@ -1,3 +1,7 @@
-Avez-vous une nouvelle recherche ?
-= link_to 'oui', wizard_path(:your_search, force_new_search: true)
-= link_to 'non', wizard_path(:your_phone_number)
+.row.header.header-phone-number
+    .col-xs-12
+        %a.workflow-back
+        
+%h3 Avez-vous une nouvelle recherche ?
+= link_to 'yes', wizard_path(:your_search, force_new_search: true), class: 'btn-yes-no'
+= link_to 'no', wizard_path(:your_phone_number), class: 'btn-yes-no'
