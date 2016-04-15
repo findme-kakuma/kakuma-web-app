@@ -1,3 +1,7 @@
-= simple_form_for @resident, url: wizard_path do |form|
-  = form.input :phone_number
-  = form.button :submit, 'Submit', class: 'pull-right'
+.row.header.header-phone-number
+    .col-xs-12
+        %a.workflow-back
+        
+        = simple_form_for @resident, url: wizard_path do |form|
+            = form.input :phone_number
+            = form.button :submit, 'Submit', class: 'pull-right btn-next'

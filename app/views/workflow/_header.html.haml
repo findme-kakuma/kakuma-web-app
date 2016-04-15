@@ -1,10 +1,12 @@
-.row
+.row.header
   .col-xs-12
-    .pull-left
-      = workflow_progress_bar
-
-    .pull-right.btn-group.btn-group-xs{ role: 'group' }
-      - I18n.available_locales.each do |l|
-        = link_to l,
-                  wizard_path(step, locale: l),
-                  class: "btn btn-default #{l == I18n.locale ? 'active' : ''}"
+    = link_to '', previous_wizard_path, class: 'workflow-back' unless [:your_profile].include? step
+    - i = 1 if step == :your_profile
+    - i = 2 if step == :your_family
+    - i = 3 if step == :your_search
+    %span.workflow-which-step
+      = i
+      of 3
+    %h3= t step
+    -# .pull-left
+    -#     = workflow_progress_bar
