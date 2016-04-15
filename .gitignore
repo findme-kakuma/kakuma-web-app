@@ -6,6 +6,8 @@
 
 # Ignore environment config.
 .autoenv.zsh
+.env
+.ruby-version
 /config/application.yml
 
 # Ignore bundler config.

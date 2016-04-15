@@ -16,8 +16,8 @@ class WorkflowController < ApplicationController
     load_resident
     case step
     when :reset_session
-      session[:resident_id] = nil
-      session[:force_new_search] = nil
+      session.delete :resident_id
+      session.delete :force_new_search
       jump_to next_step
     when :your_profile
     when :your_family
@@ -25,6 +25,7 @@ class WorkflowController < ApplicationController
     when :your_search
       jump_to previous_step unless @resident.persisted?
       load_relationship
+      jump_to next_step unless session.key? :force_new_search
     when :proposal_for_new_search
     when :your_phone_number
       jump_to previous_step unless @resident.persisted?
@@ -41,7 +42,13 @@ class WorkflowController < ApplicationController
   def update
     load_resident
     @resident.assign_attributes permited_params
+    case step
+    when :your_search
+      @relationship = @resident.relationships_targets.last
+    end
     render_wizard @resident
+    session[:force_new_search] = 'false' if session.key?(:force_new_search) &&
+                                            !@resident.changed?
   end
 
   private
@@ -49,7 +56,8 @@ class WorkflowController < ApplicationController
   def finish_wizard_path
     load_resident
     if @resident.persisted?
-      session[:resident_id] = nil
+      session.delete :resident_id
+      session.delete :force_new_search
       resident_path(@resident)
     else
       root_path
@@ -63,7 +71,9 @@ class WorkflowController < ApplicationController
   end
 
   def load_relationship
-    session[:force_new_search] = params[:force_new_search] if params.key? :force_new_search
+    if params.key? :force_new_search
+      session[:force_new_search] = params[:force_new_search]
+    end
     @relationship = (
       (
         session[:force_new_search] != 'true' ||
