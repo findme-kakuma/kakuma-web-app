@@ -1,6 +1,7 @@
 .row.header
   .col-xs-12
-    = link_to '', previous_wizard_path, class: 'workflow-back' unless [:your_profile].include? step
+    = link_to '', previous_wizard_path,
+              class: 'workflow-back' unless [:your_profile].include? step
     - i = 1 if step == :your_profile
     - i = 2 if step == :your_family
     - i = 3 if step == :your_search
@@ -8,5 +9,3 @@
       = i
       of 3
     %h3= t step
-    -# .pull-left
-    -#     = workflow_progress_bar

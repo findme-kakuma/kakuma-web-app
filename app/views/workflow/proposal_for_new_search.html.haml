@@ -1,7 +1,9 @@
 .row.header.header-phone-number
   .col-xs-12
-    = link_to '', previous_wizard_path, class: 'workflow-back' unless [:your_profile].include? step
+    = link_to '', previous_wizard_path,
+              class: 'workflow-back' unless [:your_profile].include? step
 
 %h3 Avez-vous une nouvelle recherche ?
-= link_to 'yes', wizard_path(:your_search, force_new_search: true), class: 'btn-yes-no'
+= link_to 'yes', wizard_path(:your_search, force_new_search: true),
+          class: 'btn-yes-no'
 = link_to 'no', wizard_path(:your_phone_number), class: 'btn-yes-no'
