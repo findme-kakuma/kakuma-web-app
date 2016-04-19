@@ -55,7 +55,7 @@ class WorkflowController < ApplicationController
     end
     render_wizard @resident
     session[:force_new_search] = 'false' if session.key?(:force_new_search) &&
-                                            !@resident.changed?
+                                            !@resident.changed? # update success
   end
 
   private
