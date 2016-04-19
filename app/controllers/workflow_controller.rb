@@ -4,10 +4,9 @@ class WorkflowController < ApplicationController
   STEPS = %I(
     #{'reset_session' if Rails.env.development?}
     your_profile
-    your_family
+    your_phone_number
     your_search
     proposal_for_new_search
-    your_phone_number
   ).reject(&:empty?).freeze
 
   steps(*STEPS)
@@ -20,15 +19,13 @@ class WorkflowController < ApplicationController
       session.delete :force_new_search
       jump_to next_step
     when :your_profile
-    when :your_family
+    when :your_phone_number
       jump_to previous_step unless @resident.persisted?
     when :your_search
       jump_to previous_step unless @resident.persisted?
       load_relationship
       jump_to next_step unless session.key? :force_new_search
     when :proposal_for_new_search
-    when :your_phone_number
-      jump_to previous_step unless @resident.persisted?
     end
     render_wizard
   end

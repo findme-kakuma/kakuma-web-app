@@ -20,7 +20,7 @@ class Relationship < ActiveRecord::Base
 
   accepts_nested_attributes_for :target
 
-  after_commit :notify_target
+  after_commit :notify_target, on: [:create, :update]
 
   def target_attributes=(attrs)
     self.target = Resident.where(
