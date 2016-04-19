@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  if Rails.env.development?
+    require 'que/web'
+    mount Que::Web => '/que'
+  end
+
   # constraints subdomain: 'admin' do
   #   scope module: 'admin', as: 'admin' do
   #     root to: 'residents#index'

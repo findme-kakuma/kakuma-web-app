@@ -34,9 +34,19 @@ class WorkflowController < ApplicationController
   end
 
   def create
-    @resident = Resident.new permited_params
+    if params.key?(:resident)
+      @resident = Resident.where(
+        first_name: params[:resident][:first_name],
+        last_name:  params[:resident][:last_name],
+        country_id: params[:resident][:country_id],
+        place:      params[:resident][:place]
+      ).first_or_initialize permited_params
+    else
+      @resident = Resident.new permited_params
+    end
     render_wizard @resident
     session[:resident_id] = @resident.id
+    session.delete :force_new_search
   end
 
   def update
