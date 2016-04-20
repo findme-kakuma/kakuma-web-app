@@ -2,9 +2,7 @@
     height: 110px;
     margin-bottom: 40px;
     padding-top: 20px;
-    background-color: #f5f5f5;
-    border-bottom: 1px solid #e9e9e9;
-    
+
     .workflow-back {
         display: block;
         position: absolute;
@@ -13,12 +11,12 @@
         background: asset-url('header-back-arrow-gray.png');
         cursor: pointer;
     }
-    
+
     div {
         text-align: center;
         cursor: default;
     }
-    
+
     .workflow-which-step {
         display: inline-block;
         margin: 5px 0;
@@ -29,20 +27,20 @@
     }
 }
 
-.header-phone-number {
-    background-color: white;
-    border: none;
-    
-    .workflow-back {
-        position: inherit;
-        margin-bottom: 115px;
-    }
-    
-    div {
-        text-align: left;
-    }
-}
-    
+// .header-phone-number {
+//     background-color: white;
+//     border: none;
+//
+//     .workflow-back {
+//         position: inherit;
+//         margin-bottom: 115px;
+//     }
+//
+//     div {
+//         text-align: left;
+//     }
+// }
+
 h3 {
     margin: 0;
     font-weight: bold;
@@ -57,12 +55,12 @@ form {
     .form-group {
         margin-bottom: 30px;
     }
-    
+
     label {
         font-weight: normal;
         color: #434343 !important;
     }
-    
+
     .form-control {
         height: 46px;
         background-color: #f5f5f5;
@@ -72,20 +70,20 @@ form {
         -webkit-box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.06);
         color: #434343;
     }
-    
+
     select.select {
         appearance:none;
         -moz-appearance:none;
         -webkit-appearance:none;
         background: #f5f5f5 asset-url('worflow-form-select-arrow-green.png') no-repeat  266px center;
     }
-    
+
     input[type=text]::-ms-clear, select::-ms-expand {
         display: none;
     }
-    
+
     // Error
-    
+
     .has-error input, .has-error select {
         background-color: #fdeeee;
         border-color: #ea5955 !important;
@@ -93,11 +91,11 @@ form {
         -moz-box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.06) !important;
         -webkit-box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.06) !important;
     }
-    
+
     .help-block {
         color: #ea5955 !important;
     }
-    
+
     input:focus, input:active, input:visited, input:link, .form-control:focus, .form-control:visited, .form-control:active, .form-control:link, .has-error input:focus, .has-error input:active, .has-error input:visited, .has-error input:link {
         border-color: #d6d6d6;
         box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.06) !important;
@@ -107,9 +105,9 @@ form {
         -moz-outline: 0 none !important;
         -webkit-outline: 0 none !important;
     }
-    
+
     // Btn next
-    
+
     .btn-next {
         display: block;
         float: inherit !important;
@@ -124,7 +122,7 @@ form {
         color: white;
         text-transform: uppercase;
     }
-    
+
     .btn-next:hover, .btn-next:focus, .btn-next:active, .btn-next:visited, .btn-next:link {
         background-color: #6acc87 !important;
         color: white !important;
@@ -132,7 +130,7 @@ form {
 }
 
 // Ski
-    
+
 a.pull-left {
     display: block;
     float: inherit !important;
@@ -155,7 +153,7 @@ a.pull-left:hover {
 }
 
 // Yes No
-    
+
 .btn-yes-no {
     display: inline-block;
     width: 130px;
@@ -178,4 +176,9 @@ a[href^="/en/workflow/your_search?force_new_search=true"] {
 
 .btn-yes-no:hover {
     background-color: #ededed;
+}
+
+#your-profile .header, #your-phone-number .header, #your-search .header {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #e9e9e9;
 }

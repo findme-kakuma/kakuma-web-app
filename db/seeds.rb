@@ -7,7 +7,8 @@
   { en: 'Burundi',     sw: 'Burundi' },
   { en: 'Rwanda',      sw: 'Rwanda' },
   { en: 'Eritrea',     sw: 'Eritrea' },
-  { en: 'Uganda',      sw: 'Uganda' }
+  { en: 'Uganda',      sw: 'Uganda' },
+  { en: 'other',       sw: 'mengine' }
 ].each do |country|
   c = Country.new(name: country[:en])
   c.update_attributes(

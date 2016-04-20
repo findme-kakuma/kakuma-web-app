@@ -1,5 +1,26 @@
 sw:
   your_profile: "Wasifu wako"
-  your_family: "Familia yako"
-  your_search: "Ambao ni wewe kuangalia kwa ?"
   your_phone_number: "Namba ya simu yako"
+  your_search: "Ambao ni wewe kuangalia kwa ?"
+
+  workflow:
+    your_profile:
+      profile_form:
+        first_name: "Your First Name sw"
+        last_name: "Your Last Name sw"
+        father_name: "Your Father's Name sw"
+        grandfather_name: "Your Grandfather's Name sw"
+        nickname: "Your Nickname sw"
+        country_id: "Your Country sw"
+        place: "Your City sw"
+    your_phone_number:
+      phone_number: "Your Phone Number sw"
+    your_search:
+      profile_form:
+        first_name: "His First Name sw"
+        last_name: "His Last Name sw"
+        father_name: "His Father's Name sw"
+        grandfather_name: "His Grandfather's Name sw"
+        nickname: "His Nickname sw"
+        country_id: "His Country sw"
+        place: "His City sw"

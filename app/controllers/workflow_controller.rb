@@ -4,10 +4,9 @@ class WorkflowController < ApplicationController
   STEPS = %I(
     #{'reset_session' if Rails.env.development?}
     your_profile
-    your_family
+    your_phone_number
     your_search
     proposal_for_new_search
-    your_phone_number
   ).reject(&:empty?).freeze
 
   steps(*STEPS)
@@ -20,23 +19,31 @@ class WorkflowController < ApplicationController
       session.delete :force_new_search
       jump_to next_step
     when :your_profile
-    when :your_family
+    when :your_phone_number
       jump_to previous_step unless @resident.persisted?
     when :your_search
       jump_to previous_step unless @resident.persisted?
       load_relationship
       jump_to next_step unless session.key? :force_new_search
     when :proposal_for_new_search
-    when :your_phone_number
-      jump_to previous_step unless @resident.persisted?
     end
     render_wizard
   end
 
   def create
-    @resident = Resident.new permited_params
+    if params.key?(:resident)
+      @resident = Resident.where(
+        first_name: params[:resident][:first_name],
+        last_name:  params[:resident][:last_name],
+        country_id: params[:resident][:country_id],
+        place:      params[:resident][:place]
+      ).first_or_initialize permited_params
+    else
+      @resident = Resident.new permited_params
+    end
     render_wizard @resident
     session[:resident_id] = @resident.id
+    session.delete :force_new_search
   end
 
   def update
@@ -48,7 +55,7 @@ class WorkflowController < ApplicationController
     end
     render_wizard @resident
     session[:force_new_search] = 'false' if session.key?(:force_new_search) &&
-                                            !@resident.changed?
+                                            !@resident.changed? # update success
   end
 
   private

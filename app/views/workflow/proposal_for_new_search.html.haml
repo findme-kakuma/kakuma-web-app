@@ -1,7 +1,14 @@
-.row.header.header-phone-number
-  .col-xs-12
-    = link_to '', previous_wizard_path, class: 'workflow-back' unless [:your_profile].include? step
-
-%h3 Avez-vous une nouvelle recherche ?
-= link_to 'yes', wizard_path(:your_search, force_new_search: true), class: 'btn-yes-no'
-= link_to 'no', wizard_path(:your_phone_number), class: 'btn-yes-no'
+- unless session.key? :force_new_search
+  .row.header
+    %h3 Votre profil a bien été enregistré !
+    %p.text-center Vous avez maintenant la possibilité de renseigner les informations consernant les personnes que vous recherchez.
+  %h3 Recherchez-vous quelqu'un ?
+- else
+  .row.header
+    - if session[:force_new_search] == 'false'
+      %h3 Votre recherche a bien été enregistrée !
+      %p.text-center La personne correspondant à vos critères de recherche sera automatiquement avertie que vous la recherchez.
+  %h3 Avez-vous une nouvelle recherche ?
+= link_to 'yes', wizard_path(:your_search, force_new_search: true),
+          class: 'btn-yes-no'
+= link_to 'no', next_wizard_path, class: 'btn-yes-no'
