@@ -2,6 +2,6 @@
   = form.simple_fields_for :relationships_targets, @relationship do |rs_form|
     = rs_form.input :type_of_relationship, collection: Relationship::TYPES
     = rs_form.simple_fields_for :target do |target_form|
-      = render partial: 'profile_form', locals: { form: target_form }
+      = render partial: 'profile_form', locals: { form: target_form, scope_i18n: :'workflow.your_search.profile_form' }
   = form.button :submit, 'Next', class: 'pull-right btn-next'
   = link_to 'skip', wizard_path(:proposal_for_new_search), class: 'pull-left'

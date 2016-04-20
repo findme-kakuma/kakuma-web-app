@@ -1,7 +1,7 @@
-= form.input :first_name
-= form.input :last_name
-= form.input :father_name
-= form.input :grandfather_name
-= form.input :nickname
-= form.input :country_id, collection: Country.all
-= form.input :place
+= form.input :first_name, label: (t :first_name, scope: scope_i18n)
+= form.input :last_name, label: (t :last_name, scope: scope_i18n)
+= form.input :father_name, label: (t :father_name, scope: scope_i18n)
+= form.input :grandfather_name, label: (t :grandfather_name, scope: scope_i18n)
+= form.input :nickname, label: (t :nickname, scope: scope_i18n)
+= form.input :country_id, label: (t :country_id, scope: scope_i18n), collection: Country.all
+= form.input :place, label: (t :place, scope: scope_i18n)
