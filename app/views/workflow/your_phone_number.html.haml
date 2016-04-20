@@ -1,8 +1,6 @@
-.row.header.header-phone-number
-  .col-xs-12
-    = link_to '', previous_wizard_path,
-              class: 'workflow-back' unless [:your_profile].include? step
+#your-phone-number
+  = render partial: 'header'
 
-    = simple_form_for @resident, url: wizard_path do |form|
-      = form.input :phone_number
-      = form.button :submit, 'Submit', class: 'pull-right btn-next'
+  = simple_form_for @resident, url: wizard_path do |form|
+    = form.input :phone_number, label: (t '.phone_number')
+    = form.button :submit, 'Submit', class: 'pull-right btn-next'

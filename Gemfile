@@ -57,6 +57,12 @@ gem 'globalize', '~> 5.0.0'
 # (https://github.com/floere/phony).
 gem 'phony_rails'
 
+##
+# Que is a high-performance alternative to DelayedJob or QueueClassic that
+# improves the reliability of your application by protecting your jobs with the
+# same ACID guarantees as the rest of your data.
+gem 'que'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a
   # debugger console
@@ -82,4 +88,7 @@ group :development do
   # to every rails project. This is a small gem which causes rails console to
   # open pry. It therefore depends on pry.
   gem 'pry-rails'
+
+  # que-web is a web UI to the Que job queue.
+  gem 'que-web'
 end
