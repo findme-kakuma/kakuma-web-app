@@ -14,7 +14,7 @@ en:
         country_id: "Your Country"
         place: "Your City"
     your_phone_number:
-      phone_number: "Your Phone Number"
+      phone_number: "What’s your phone number? (so we can send you a SMS notification if a match is found)"
     your_search:
       profile_form:
         first_name: "His First Name"
