@@ -1,70 +1,70 @@
 body {
-    font-family: 'Droid Sans', sans-serif;
-    font-size: 14px;
-    color: #434343;
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 14px;
+  color: #434343;
 }
 
 .container-fluid {
-    display: table;
-    width: 100vw;
-    min-height: 100vh;
+  display: table;
+  width: 100vw;
+  min-height: 100vh;
 }
 
 .logotype {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 60px;
-    background-image: asset-url('logotype-kakuma.png');
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 60px;
+  background-image: asset-url('logotype-kakuma.png');
 }
 
 // BTN
 
 .btn {
-    border: none;
-    border-radius: 4px !important;
-    -moz-border-radius: 4px !important;
-    -webkit-border-radius: 4px !important;
-    font-size: 20px;
+  border: none;
+  border-radius: 4px !important;
+  -moz-border-radius: 4px !important;
+  -webkit-border-radius: 4px !important;
+  font-size: 20px;
 }
 
 .btn-default {
-    background-color: #f9f9f9;
-    font-weight: bold;
-    color: #434343;
-    text-transform: uppercase;
+  background-color: #f9f9f9;
+  font-weight: bold;
+  color: #434343;
+  text-transform: uppercase;
 }
 
 .btn-lg {
-    padding: 20px 30px !important;
+  padding: 20px 30px !important;
 }
 
 .btn-success {
-    display: block;
-    float: inherit !important;
-    margin: 40px auto;
-    background-color: #69d589;
-    color: white;
+  display: block;
+  float: inherit !important;
+  margin: 40px auto;
+  background-color: #69d589;
+  color: white;
 }
 
 // BTN :hover :visited :link :focus :active
 
 .btn:hover, .btn:visited, .btn:link, .btn:focus, .btn:active, .btn-default:hover, .btn-default:visited, .btn-default:link, .btn-default:focus, .btn-default:active, .btn-lg:hover, .btn-lg:visited, .btn-lg:link, .btn-lg:focus, .btn-lg:active, .btn-success:hover, .btn-success:visited, .btn-success:link, .btn-success:focus, .btn-success:active {
-    box-shadow: none;
-    outline: 0 none;
+  box-shadow: none;
+  outline: 0 none;
 }
 
 .btn:hover, .btn:visited, .btn:link, .btn-default:hover, .btn-default:visited, .btn-default:link, .btn-lg:hover, .btn-lg:visited, .btn-lg:link {
-    background-color: #f9f9f9;
+  background-color: #f9f9f9;
 }
 
 .btn:focus, .btn:active, .btn-default:focus, .btn-default:active, .btn-lg:focus, .btn-lg:active {
-    background-color: #f1f1f1 !important;
+  background-color: #f1f1f1 !important;
 }
 
 .btn-success:hover, .btn-success:visited, .btn-success:link {
-    background-color: #69d589;
+  background-color: #69d589;
 }
 
 .btn-success:focus, .btn-success:active {
-    background-color: #6acc87 !important;
+  background-color: #6acc87 !important;
 }
