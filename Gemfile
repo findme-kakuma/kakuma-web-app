@@ -63,6 +63,9 @@ gem 'phony_rails'
 # same ACID guarantees as the rest of your data.
 gem 'que'
 
+# A module for using the Twilio REST API and generating valid TwiML.
+gem 'twilio-ruby', '~> 4.11.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a
   # debugger console

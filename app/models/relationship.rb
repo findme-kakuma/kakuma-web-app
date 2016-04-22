@@ -34,6 +34,6 @@ class Relationship < ActiveRecord::Base
   private
 
   def notify_target
-    NotifyResident.enqueue target_id, id, nil if target.notifiable?
+    NotifyResident.enqueue target_id, id, nil
   end
 end

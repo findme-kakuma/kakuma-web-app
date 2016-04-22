@@ -41,6 +41,7 @@ class WorkflowController < ApplicationController
     else
       @resident = Resident.new permited_params
     end
+    @resident.locale = I18n.locale
     render_wizard @resident
     session[:resident_id] = @resident.id
     session.delete :force_new_search

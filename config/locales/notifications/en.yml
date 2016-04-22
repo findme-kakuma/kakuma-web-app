@@ -1,0 +1,2 @@
+en:
+  your_profile_match: "Hello %{target_first_name}, %{applicant_full_name} looking for someone who could be you."

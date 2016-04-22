@@ -37,6 +37,21 @@ class Resident < ActiveRecord::Base
   end
 
   def notify(relationship)
-    puts "Bonjour #{first_name} ! #{relationship.applicant.first_name} vous recherche."
+    if notifiable?
+      body = I18n.t :your_profile_match,
+                    target_first_name: first_name,
+                    applicant_full_name: %W(
+                      #{relationship.applicant.first_name}
+                      #{"(#{relationship.applicant.phone_number})" if
+                        relationship.applicant.phone_number.present?}
+                    ).reject(&:empty?).freeze.join(' '),
+                    locale: (locale || I18n.default_locale)
+      twilio_client = Twilio::REST::Client.new
+      twilio_client.messages.create(
+        from: Figaro.env.twilio_from,
+        to: phone_number,
+        body: body
+      )
+    end
   end
 end
