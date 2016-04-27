@@ -1,0 +1,16 @@
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= Relationship.human_attribute_name :applicant
+        %th= Relationship.human_attribute_name :target
+        %th= Relationship.human_attribute_name :type_of_relationship
+        %th= Relationship.human_attribute_name :created_at
+    %tbody
+      - @matches.each do |match|
+        %tr
+          %td= match.applicant.full_name
+          %td= match.target.full_name
+          %td= t match.type_of_relationship,
+            scope: 'simple_form.options.defaults.type_of_relationship'
+          %td= l match.created_at

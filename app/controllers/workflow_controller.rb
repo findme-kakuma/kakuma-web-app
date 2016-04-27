@@ -51,6 +51,8 @@ class WorkflowController < ApplicationController
     load_resident
     @resident.assign_attributes permited_params
     case step
+    when :your_phone_number
+      @resident.register
     when :your_search
       @relationship = @resident.relationships_targets.last
     end
@@ -73,9 +75,7 @@ class WorkflowController < ApplicationController
   end
 
   def load_resident
-    @resident = (
-      session[:resident_id] && Resident.find_by(id: session[:resident_id])
-    ) || Resident.new
+    @resident = Resident.find_by(id: session[:resident_id]) || Resident.new
   end
 
   def load_relationship

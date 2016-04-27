@@ -11,6 +11,7 @@
     / Collect the nav links, forms, and other content for toggling
     #navigation-navbar-collapse.collapse.navbar-collapse
       %ul.nav.navbar-nav
+        = nav_link 'matches', admin_matches_path
         = nav_link 'residents', admin_residents_path
         = nav_link 'countries', admin_countries_path
       %ul.nav.navbar-nav.navbar-right

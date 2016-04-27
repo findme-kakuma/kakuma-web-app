@@ -16,3 +16,6 @@ en:
         father_name: Father's name
         grandfather_name: Grandfather's name
         phone_number: Phone number
+      relationship:
+        applicant: Applicant
+        target: Target

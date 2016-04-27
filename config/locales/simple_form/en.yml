@@ -37,3 +37,16 @@ en:
         nickname: Nickname
         country_id: Country
         place: City
+
+    options:
+      defaults:
+        type_of_relationship:
+          mother: Mother
+          father: Father
+          son: Son
+          daughter: Daughter
+          brother: Brother
+          sister: Sister
+          wife: Wife
+          husband: Husband
+          other: Other
