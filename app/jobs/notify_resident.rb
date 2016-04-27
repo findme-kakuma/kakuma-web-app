@@ -4,7 +4,7 @@ class NotifyResident < Que::Job
   @priority = 10
   @run_at = proc { 1.minute.from_now }
 
-  def run(resident_id, relationship_id, options)
+  def run(resident_id, relationship_id, _options)
     resident = Resident.find resident_id
     relationship = Relationship.find relationship_id
 

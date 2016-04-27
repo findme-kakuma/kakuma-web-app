@@ -37,6 +37,7 @@ gem 'unicorn'
 # Use haml as templating engine for HTML.
 gem 'haml'
 
+##
 # bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop
 # right into your Sass powered applications.
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -44,18 +45,24 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # Use wicked to make your Rails controllers into step-by-step wizards.
 gem 'wicked'
 
+##
 # Simple Form aims to be as flexible as possible while helping you with
 # powerful components to create your forms.
 gem 'simple_form'
 
+##
 # Globalize builds on the I18n API in Ruby on Rails to add model translations to
 # ActiveRecord models.
 gem 'globalize', '~> 5.0.0'
 
+##
 # This small Gem adds useful methods to your Rails app to validate, display and
 # save phone numbers. It uses the super awesome Phony gem
 # (https://github.com/floere/phony).
 gem 'phony_rails'
+
+# AASM is a library for adding finite state machines to Ruby classes.
+gem 'aasm'
 
 ##
 # Que is a high-performance alternative to DelayedJob or QueueClassic that
@@ -63,7 +70,11 @@ gem 'phony_rails'
 # same ACID guarantees as the rest of your data.
 gem 'que'
 
+# A module for using the Twilio REST API and generating valid TwiML.
+gem 'twilio-ruby', '~> 4.11.1'
+
 group :development, :test do
+  ##
   # Call 'byebug' anywhere in the code to stop execution and get a
   # debugger console
   gem 'byebug'
@@ -73,6 +84,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
+  ##
   # Spring speeds up development by keeping your application running in the
   # background. Read more: https://github.com/rails/spring
   gem 'spring'

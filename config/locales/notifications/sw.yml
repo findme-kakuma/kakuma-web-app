@@ -1,0 +1,2 @@
+sw:
+  your_profile_match: "Habari %{target_first_name}, %{applicant_full_name} looking for someone who could be you."

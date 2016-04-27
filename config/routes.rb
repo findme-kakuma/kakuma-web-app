@@ -20,9 +20,10 @@ Rails.application.routes.draw do
     resources :residents, only: [:show]
 
     namespace 'admin' do
-      root to: 'residents#index'
-      resources :countries, only: :index
+      root to: 'matches#index'
+      get 'matches', to: 'matches#index'
       resources :residents, only: [:index, :destroy]
+      resources :countries, only: :index
     end
   end
 end
