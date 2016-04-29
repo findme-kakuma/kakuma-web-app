@@ -192,7 +192,7 @@ sw:
       confirmation: 'haifanani na hapo chini'
       accepted: 'lazima ikubaliwe'
       empty: 'haitakiwi kuwa tupu'
-      blank: 'haitakiwi kuwa wazi'
+      blank: 'Tafadhali kamilisha nafasi huu inayohitajika.'
       too_long: 'ndefu sana (isizidi herufi %{count})'
       too_short: 'fupi mno (isipungue herufi %{count})'
       wrong_length: 'idadi ya herufi hazilingani (inatakiwa %{count})'
@@ -205,7 +205,7 @@ sw:
       less_than_or_equal_to: 'z/iwe sawa na, ama chini ya {{count}}'
       odd: 'z/iwe witiri'
       even: 'z/iwe shufwa'
-      improbable_phone: 'ni idadi batili'
+      improbable_phone: 'hii namba ya simu sio sahihi , tafadhali hakikisha tena.'
 
   activerecord:
     errors:

@@ -1,2 +1,9 @@
 en:
   hello: "Hello world"
+
+  errors:
+    format: '%{attribute} %{message}'
+
+    messages: &errors_messages
+      blank: 'Please complete this required field.'
+      improbable_phone: 'This phone number seems invalid, please check again.'
