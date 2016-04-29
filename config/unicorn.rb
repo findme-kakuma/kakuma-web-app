@@ -1,21 +1,21 @@
 # Set the current app's path for later reference. Rails.root isn't available at
 # this point, so we have to point up a directory.
-if ENV['STACK_PATH'].present?
+# if ENV['STACK_PATH'].present?
   working_directory "#{ENV['STACK_PATH']}"
-  listen '/var/run/web_server.sock', backlog: 64
-  pid '/var/run/web_server.pid'
-  old_pid = '/var/run/web_server.pid.oldbin'
+  listen '/tmp/web_server.sock', backlog: 64
+  pid '/tmp/web_server.pid'
+  old_pid = '/tmp/web_server.pid.oldbin'
   stderr_path "#{ENV['STACK_PATH']}/log/unicorn.stderr.log"
   stdout_path "#{ENV['STACK_PATH']}/log/unicorn.stdout.log"
-else
-  app_path = File.expand_path(File.dirname(__FILE__) + '/..')
-  working_directory app_path
-  listen app_path + '/tmp/web_server.sock', backlog: 64
-  pid app_path + '/tmp/web_server.pid'
-  old_pid = app_path + '/tmp/web_server.pid.oldbin'
-  stderr_path app_path + '/log/unicorn.stderr.log'
-  stdout_path app_path + '/log/unicorn.stdout.log'
-end
+# else
+#   app_path = File.expand_path(File.dirname(__FILE__) + '/..')
+#   working_directory app_path
+#   listen app_path + '/tmp/web_server.sock', backlog: 64
+#   pid app_path + '/tmp/web_server.pid'
+#   old_pid = app_path + '/tmp/web_server.pid.oldbin'
+#   stderr_path app_path + '/log/unicorn.stderr.log'
+#   stdout_path app_path + '/log/unicorn.stdout.log'
+# end
 
 worker_processes Integer(ENV['WEB_CONCURRENCY'] || 2)
 
