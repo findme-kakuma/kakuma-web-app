@@ -1,1 +1,7 @@
-port: "3000"
+port: '3000'
+twilio_account_sid: 'twilio_account_sid_XXX'
+twilio_auth_token: 'twilio_auth_token_XXX'
+twilio_from: '+ZZXXXXXXXXX'
+urls_to_push_resident:
+  - 'http://localhost:3001/api/v1/residents'
+  - 'http://example.com/api/vn/residents'

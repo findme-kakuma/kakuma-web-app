@@ -14,6 +14,14 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
 
+  # api
+  namespace :api do
+    namespace :v1 do
+      get 'matches', to: 'matches#index'
+      resources :residents, only: :index
+    end
+  end
+
   scope '(:locale)', locale: /en|sw/ do
     resources :workflow, only: [:show, :update]
     post '/workflow/:id', to: 'workflow#create'

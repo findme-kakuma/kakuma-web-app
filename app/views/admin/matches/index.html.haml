@@ -9,8 +9,8 @@
     %tbody
       - @matches.each do |match|
         %tr
-          %td= match.applicant.full_name
-          %td= match.target.full_name
+          %td= match.applicant.full_name with_phone_number: true
+          %td= match.target.full_name with_phone_number: true
           %td= t match.type_of_relationship,
             scope: 'simple_form.options.defaults.type_of_relationship'
           %td= l match.created_at
