@@ -1,7 +1,7 @@
 # Set the current app's path for later reference. Rails.root isn't available at
 # this point, so we have to point up a directory.
 if ENV['STACK_PATH'].present?
-  working_directory ENV['STACK_PATH']
+  working_directory "#{ENV['STACK_PATH']}"
   listen '/tmp/web_server.sock', backlog: 64
   pid '/tmp/web_server.pid'
   old_pid = '/tmp/web_server.pid.oldbin'
