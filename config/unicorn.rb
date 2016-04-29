@@ -2,9 +2,9 @@
 # this point, so we have to point up a directory.
 if ENV['STACK_PATH'].present?
   working_directory "#{ENV['STACK_PATH']}"
-  listen '/tmp/web_server.sock', backlog: 64
-  pid '/tmp/web_server.pid'
-  old_pid = '/tmp/web_server.pid.oldbin'
+  listen '/var/run/web_server.sock', backlog: 64
+  pid '/var/run/web_server.pid'
+  old_pid = '/var/run/web_server.pid.oldbin'
   stderr_path "#{ENV['STACK_PATH']}/log/unicorn.stderr.log"
   stdout_path "#{ENV['STACK_PATH']}/log/unicorn.stdout.log"
 else
