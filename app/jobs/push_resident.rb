@@ -1,16 +1,26 @@
-class NotifyResident < Que::Job
+class PushResident < Que::Job
   # Default settings for this job. These are optional - without them, jobs
   # will default to priority 100 and run immediately.
   @priority = 10
   @run_at = proc { 1.minute.from_now }
 
-  def run(resident_id, relationship_id, _options = {})
+  def run(resident_id, _options = {})
     resident = Resident.find resident_id
-    relationship = Relationship.find relationship_id
 
     ActiveRecord::Base.transaction do
       # Write any changes you'd like to the database.
-      resident.notify(relationship)
+      urls = if Figaro.env.urls_to_push_resident?
+               JSON.parse(Figaro.env.urls_to_push_resident)
+             else []
+             end
+      urls.each do |url|
+        @result = HTTParty.post url,
+                                body: { resident: resident }.to_json,
+                                headers: {
+                                  'Content-Type' => 'application/json'
+                                }
+        puts @result
+      end
 
       # It's best to destroy the job in the same transaction as any other
       # changes you make. Que will destroy the job for you after the run
