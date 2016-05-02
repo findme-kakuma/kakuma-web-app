@@ -15,8 +15,9 @@ class PushResident < Que::Job
              end
       urls.each do |url|
         @result = HTTParty.post url,
-                                # body: { resident: resident }.to_json,
-                                body: Api::V1::ResidentSerializer.new(resident).to_json,
+                                body: Api::V1::ResidentSerializer.new(
+                                  resident
+                                ).to_json,
                                 headers: {
                                   'Content-Type' => 'application/json'
                                 }

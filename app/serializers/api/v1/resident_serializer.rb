@@ -1,15 +1,12 @@
 class Api::V1::ResidentSerializer < Api::V1::BaseSerializer
-  attributes :id,
+  attributes :uuid,
              :first_name,
              :last_name,
+             :nickname,
              :father_name,
              :grandfather_name,
-             :country_id,
              :country_name,
              :place,
-             :phone_number,
-             :locale,
-             :state,
              :created_at,
              :updated_at
 

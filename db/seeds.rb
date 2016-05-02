@@ -29,10 +29,27 @@ unless Resident.any?
   csv = CSV.parse(csv_text, headers: true)
   csv.each do |row|
     h = row.to_hash
-    h['country_id'] = 10 if h['country_id'] == 'NULL'
+    country_name = if %w(
+      South Sudan
+      Sudan
+      Somalia
+      Ethiopia
+      D.R. Congo
+      Burundi
+      Rwanda
+      Eritrea
+      Uganda
+    ).include? h['country_name']
+                     h['country_name']
+                   else
+                     'other'
+                   end
+    h.delete 'country_name'
+    country = Country.where(name: country_name).first
     h['place'] = nil if h['place'] == 'NULL'
     begin
-      r = Resident.new(h)
+      r = country.residents.build(h)
+      r.register
       r.save validate: false
     rescue Exception => e
       puts e.message
