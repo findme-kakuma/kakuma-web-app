@@ -9,5 +9,5 @@
                     scope_i18n: :'workflow.your_search.profile_form' }
   = form.button :submit, 'Next',
                 class: 'pull-right btn-lg btn btn-lg btn-success'
-  = link_to 'skip', wizard_path(:proposal_for_new_search),
+  = link_to 'skip', next_wizard_path,
             class: 'pull-left btn btn-default btn-lg'

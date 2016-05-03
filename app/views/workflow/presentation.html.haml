@@ -1,0 +1,29 @@
+#presentation
+  .row.header
+    .col-xs-12
+      %h3 What ? Why ?
+  .container
+    %p
+      Rejoignez les autres utilisateurs de l'application afin de retrouver plus
+      facilement vos proches. Pour cela, rien de plus simple: il suffit de
+      cliquer sur le lien ci-dessous et de vous laisser guider dans les étapes
+      de création de votre profile.
+    %p
+      Avant tout, merci de prendre connaissance des
+      = link_to "Conditions Générales d'Utilisation", '#', data: { toggle: "modal", target: "#tosModal" }
+      \.
+
+    = link_to 'next', next_wizard_path,
+              class: 'btn btn-default pull-right btn-lg btn-success'
+
+#tosModal.modal.fade{"aria-labelledby" => "tosModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog{role: "document"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4#tosModalLabel.modal-title Terms of Service
+      .modal-body
+        = render partial: 'shared/tos'
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close

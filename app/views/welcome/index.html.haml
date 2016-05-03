@@ -4,7 +4,7 @@
     .row
         .col-xs-12.btn-group-vertical.btn-group-lg{ role: 'group' }
             - I18n.available_locales.each do |locale|
-                = link_to workflow_path(locale: locale, id: :your_profile),
+                = link_to workflow_path(locale: locale, id: :presentation),
                         class: 'btn btn-default btn-lg' do
                     = raw (t :i_speak_my_language, locale: locale)
                     = image_tag 'welcome-btn-arrow-green.png'

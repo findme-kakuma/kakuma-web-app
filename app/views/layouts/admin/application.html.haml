@@ -12,6 +12,8 @@
     = render partial: 'layouts/admin/navigation'
     .container-fluid
       = yield
+    = yield :inline_javascript
+
 
 - if Rails.env.development?
   - console
