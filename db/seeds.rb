@@ -49,6 +49,11 @@ unless Resident.any?
     h['place'] = nil if h['place'] == 'NULL'
     begin
       r = country.residents.build(h)
+
+      # TODO : Verifier avec le client la validite des champs suivants.
+      r.father_name = r.last_name
+      r.grandfather_name = r.nickname
+
       r.register
       r.save validate: false
     rescue Exception => e
