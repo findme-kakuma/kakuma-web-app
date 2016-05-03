@@ -6,6 +6,7 @@ module WorkflowHelper
           (wizard_steps.delete_if do |step|
             [
               :reset_session,
+              :presentation,
               :proposal_for_new_search
             ].include? step
           end).collect do |every_step|

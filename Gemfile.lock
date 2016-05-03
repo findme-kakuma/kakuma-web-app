@@ -21,6 +21,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_model_serializers (0.9.5)
+      activemodel (>= 3.2)
     activejob (4.2.6)
       activesupport (= 4.2.6)
       globalid (>= 0.3.0)
@@ -37,6 +39,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    api-pagination (4.3.0)
     arel (6.0.3)
     autoprefixer-rails (6.3.5)
       execjs
@@ -79,6 +82,9 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -89,6 +95,9 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     jwt (1.5.4)
+    kaminari (0.16.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     kgio (2.10.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -101,6 +110,7 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
+    multi_xml (0.5.5)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     pg (0.18.4)
@@ -213,6 +223,8 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
+  active_model_serializers
+  api-pagination
   bootstrap-sass (~> 3.3.6)
   byebug
   coffee-rails (~> 4.1.0)
@@ -220,8 +232,10 @@ DEPENDENCIES
   globalize (~> 5.0.0)
   haml
   haml-rails (~> 0.9)
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   pg
   phony_rails
   pry-rails

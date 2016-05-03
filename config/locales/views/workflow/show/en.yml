@@ -6,21 +6,23 @@ en:
   workflow:
     your_profile:
       profile_form:
-        first_name: "Your First Name"
-        last_name: "Your Last Name"
-        father_name: "Your Father's Name"
-        grandfather_name: "Your Grandfather's Name"
-        nickname: "Your Nickname"
-        country_id: "Your Country"
-        place: "Your City"
+        first_name: "What’s your first name?"
+        last_name: "What’s your last name?"
+        father_name: "What’s your father's name?"
+        grandfather_name: "What’s your grandfather's name?"
+        nickname: "What’s your christian's name?"
+        country_id: "Which country do you come from?"
+        place: "Which city?"
     your_phone_number:
-      phone_number: "Your Phone Number"
+      phone_number: "What’s your phone number? (so we can send you a SMS notification if a match is found)"
     your_search:
+      search_form:
+        type_of_relationship: "Who is he/she?"
       profile_form:
-        first_name: "His First Name"
-        last_name: "His Last Name"
-        father_name: "His Father's Name"
-        grandfather_name: "His Grandfather's Name"
-        nickname: "His Nickname"
-        country_id: "His Country"
-        place: "His City"
+        first_name: "What’s his/her first name?"
+        last_name: "What’s his/her last name?"
+        father_name: "What’s his/her father’s name?"
+        grandfather_name: "What’s his/her grandfather’s name?"
+        nickname: "What’s his/her christian's name?"
+        country_id: "Which country does he/she come from?"
+        place: "Which city does he/she come from?"

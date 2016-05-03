@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426075555) do
+ActiveRecord::Schema.define(version: 20160502132540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
   create_table "countries", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -58,8 +59,8 @@ ActiveRecord::Schema.define(version: 20160426075555) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "nickname"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.integer  "country_id"
     t.string   "place"
     t.string   "father_name"
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 20160426075555) do
     t.string   "phone_number"
     t.string   "locale"
     t.string   "state"
+    t.uuid     "uuid",             default: "uuid_generate_v4()"
   end
 
   add_index "residents", ["country_id"], name: "index_residents_on_country_id", using: :btree

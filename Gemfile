@@ -73,6 +73,24 @@ gem 'que'
 # A module for using the Twilio REST API and generating valid TwiML.
 gem 'twilio-ruby', '~> 4.11.1'
 
+##
+# ActiveModelSerializers brings convention over configuration to your
+# JSON generation.
+gem 'active_model_serializers'
+
+##
+# A Scope & Engine based, clean, powerful, customizable and sophisticated
+# paginator for modern web app frameworks and ORMs.
+gem 'kaminari'
+
+##
+# Paginate in your headers, not in your response body. This follows the
+# proposed RFC-5988 standard for Web linking.
+gem 'api-pagination'
+
+# Makes http fun again !
+gem 'httparty'
+
 group :development, :test do
   ##
   # Call 'byebug' anywhere in the code to stop execution and get a

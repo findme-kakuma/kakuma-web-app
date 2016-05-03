@@ -2,5 +2,5 @@
   = render partial: 'header'
 
   = simple_form_for @resident, url: wizard_path do |form|
-    = form.input :phone_number, label: (t '.phone_number')
-    = form.button :submit, 'Submit', class: 'pull-right btn-next'
+    = form.input :phone_number, label: (t '.phone_number'), required: true
+    = form.button :submit, 'Submit', class: 'pull-right btn-lg btn-success'
