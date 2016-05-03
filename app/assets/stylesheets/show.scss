@@ -1,18 +1,44 @@
-h4 {
+#thank-you > div {
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+#thank-you {    
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 20px;
+  text-align: center;
+
+  h4 {
+    margin-bottom: 20px;
     font-weight: bold;
     font-size: 22px;
     color: #5aba76;
-}
+    text-align: left;
+  }
 
-.separation {
+  .separation {
     display: block;
     width: 145px;
     height: 1px;
-    margin: 20px 0 40px;
+    margin: 20px 0;
     background-color: #69d589;
-}
+  }
 
-p {
+  p {
+    margin: 0;
     font-size: 16px;
     line-height: 22px;
+    text-align: left;
+  }
+
+  p:first-of-type {
+    margin-bottom: 10px;
+  }
+
+  .btn-default {
+    margin: 40px 0 0;
+    font-size: 14px;
+    text-transform: inherit;
+  }
 }

@@ -8,7 +8,6 @@
 .autoenv.zsh
 .env
 .ruby-version
-/config/application.yml
 
 # Ignore bundler config.
 /.bundle
@@ -24,3 +23,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore application configuration
+/config/application.yml
