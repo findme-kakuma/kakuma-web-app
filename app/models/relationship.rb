@@ -40,6 +40,6 @@ class Relationship < ActiveRecord::Base
   private
 
   def notify_target
-    NotifyResident.enqueue target_id, id
+    target.notify self
   end
 end

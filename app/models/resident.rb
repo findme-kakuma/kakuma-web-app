@@ -26,7 +26,7 @@ class Resident < ActiveRecord::Base
             phony_plausible: true,
             allow_blank: true
   validates :phone_number,
-            presence: true, if: Proc.new { |r| r.registered? }
+            presence: true, if: proc { |r| r.registered? }
 
   validates :first_name,
             :last_name,
@@ -43,7 +43,8 @@ class Resident < ActiveRecord::Base
     state :registered
 
     event :register do
-      transitions from: [:target, :registered], to: :registered
+      transitions from: :target, to: :registered, success: proc { notify }
+      transitions from: :registered, to: :registered
     end
   end
 
@@ -56,12 +57,25 @@ class Resident < ActiveRecord::Base
     ).reject(&:empty?).freeze.join(' ')
   end
 
-  def notifiable?
+  def notify(relationship = nil)
+    if registered?
+      relationships = if relationship.present?
+                        [relationship]
+                      else
+                        relationships_applicants
+                      end
+      relationships.each do |r|
+        NotifyResidentViaShortMessageService.enqueue id, r.id
+      end
+    end
+  end
+
+  def notifiable_by_sms?
     phone_number.present?
   end
 
-  def notify(relationship)
-    if notifiable?
+  def notify_by_sms(relationship)
+    if notifiable_by_sms?
       body = I18n.t :your_profile_match,
                     target_first_name: first_name,
                     applicant_full_name: relationship.applicant.full_name(
@@ -80,6 +94,6 @@ class Resident < ActiveRecord::Base
   private
 
   def push_resident
-    PushResident.enqueue id if registered?
+    PushResident.enqueue id if previous_changes.any? && registered?
   end
 end
