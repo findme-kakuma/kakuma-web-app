@@ -51,11 +51,15 @@ class WorkflowController < ApplicationController
     @resident.assign_attributes permited_params
     case step
     when :your_phone_number
-      @resident.register
+      @resident.register!
     when :your_search
       @relationship = @resident.relationships_targets.last
     end
-    render_wizard @resident
+    if @resident.errors.any?
+      render_wizard
+    else
+      render_wizard @resident
+    end
     session[:force_new_search] = 'false' if session.key?(:force_new_search) &&
                                             !@resident.changed? # update success
   end
