@@ -49,6 +49,8 @@ form {
   }
 
   label {
+    margin-bottom: 15px;
+    font-size: 16px;
     color: #434343 !important;
     font-weight: normal;
   }
@@ -73,6 +75,10 @@ form {
 
   input[type=text]::-ms-clear, select::-ms-expand {
     display: none;
+  }
+  
+  .pull-left {
+    background-color: #f1f1f1 !important;
   }
 
   // error
@@ -121,6 +127,46 @@ a[href^="/en/workflow/your_search?force_new_search=true"] {
   .container {
     margin: 0 auto;
     max-width: 460px;
+    text-align: center;
+  
+    p {
+      line-height: 22px;
+      text-align: left
+    }
+  
+    .btn-default {
+      display: inline-block;
+    }
+  }
+}
+  
+// Modal dialog
+.modal {
+  .modal-content {
+    border: none;
+    border-radius: 0;
+    box-shadow: inherit;
+  }
+  
+  .modal-header {
+  }
+  
+  .modal-body {
+    line-height: 22px;
+  }
+  
+  .modal-footer {
+    text-align: center;
+    
+    button {
+      font-weight: normal;
+      font-size: 18px;
+      text-transform: inherit;
+    }
+  }
+  
+  .modal-header, .modal-body, .modal-footer {
+    padding: 20px;
   }
 }
 
