@@ -1,16 +1,16 @@
 #new-search
-    %div
-        - unless session.key? :force_new_search
-            .row.header
-                %h3 You are registered on Kakumapp&nbsp;!
-                %p.text-center You can now describe a person you are looking for in order to be notified if this person register on Kakumapp.
-            %h3 Add a person you are looking for&nbsp;?
-        - else
-            .row.header
-                - if session[:force_new_search] == 'false'
-                    %h3 Person added&nbsp;!
-                    %p.text-center You’ll received a SMS notification if this person registers on Kakumapp.
-            %h3 Add another person&nbsp;?
-        = link_to 'yes', wizard_path(:your_search, force_new_search: true),
-                  class: 'btn btn-default btn-lg'
-        = link_to 'no', next_wizard_path, class: 'btn btn-default btn-lg'
+  %div
+    - if session.key? :force_new_search
+      .row.header
+        - if session[:force_new_search] == 'false'
+          %h3 Person added&nbsp;!
+          %p.text-center You’ll received a SMS notification if this person registers on Kakumapp.
+      %h3 Add another person&nbsp;?
+    - else
+      .row.header
+        %h3 You are registered on Kakumapp&nbsp;!
+        %p.text-center You can now describe a person you are looking for in order to be notified if this person register on Kakumapp.
+      %h3 Add a person you are looking for&nbsp;?
+    = link_to 'yes', wizard_path(:your_search, force_new_search: true),
+              class: 'btn btn-default btn-lg'
+    = link_to 'no', next_wizard_path, class: 'btn btn-default btn-lg'

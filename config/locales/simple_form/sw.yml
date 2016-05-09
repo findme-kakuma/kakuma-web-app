@@ -37,3 +37,16 @@ sw:
         nickname: Jina la utani
         country_id: Nchi
         place: Mji
+
+    options:
+      defaults:
+        type_of_relationship:
+          mother: Mother sw
+          father: Father sw
+          son: Son sw
+          daughter: Daughter sw
+          brother: Brother sw
+          sister: Sister sw
+          wife: Wife sw
+          husband: Husband sw
+          other: Other sw

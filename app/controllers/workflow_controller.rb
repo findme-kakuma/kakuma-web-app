@@ -3,6 +3,7 @@ class WorkflowController < ApplicationController
 
   STEPS = %I(
     #{'reset_session' if Rails.env.development?}
+    presentation
     your_profile
     your_phone_number
     your_search
@@ -18,14 +19,12 @@ class WorkflowController < ApplicationController
       session.delete :resident_id
       session.delete :force_new_search
       jump_to next_step
-    when :your_profile
     when :your_phone_number
       jump_to previous_step unless @resident.persisted?
     when :your_search
       jump_to previous_step unless @resident.persisted?
       load_relationship
       jump_to next_step unless session.key? :force_new_search
-    when :proposal_for_new_search
     end
     render_wizard
   end
@@ -41,6 +40,7 @@ class WorkflowController < ApplicationController
     else
       @resident = Resident.new permited_params
     end
+    @resident.locale = I18n.locale
     render_wizard @resident
     session[:resident_id] = @resident.id
     session.delete :force_new_search
@@ -50,10 +50,16 @@ class WorkflowController < ApplicationController
     load_resident
     @resident.assign_attributes permited_params
     case step
+    when :your_phone_number
+      @resident.register!
     when :your_search
       @relationship = @resident.relationships_targets.last
     end
-    render_wizard @resident
+    if @resident.errors.any?
+      render_wizard
+    else
+      render_wizard @resident
+    end
     session[:force_new_search] = 'false' if session.key?(:force_new_search) &&
                                             !@resident.changed? # update success
   end
@@ -72,9 +78,7 @@ class WorkflowController < ApplicationController
   end
 
   def load_resident
-    @resident = (
-      session[:resident_id] && Resident.find_by(id: session[:resident_id])
-    ) || Resident.new
+    @resident = Resident.find_by(id: session[:resident_id]) || Resident.new
   end
 
   def load_relationship

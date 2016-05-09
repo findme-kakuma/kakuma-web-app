@@ -16,3 +16,6 @@ sw:
         father_name: Jina la Baba
         grandfather_name: Jina Babu
         phone_number: Nambari ya simu
+      relationship:
+        applicant: Applicant sw
+        target: Target sw

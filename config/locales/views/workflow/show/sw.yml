@@ -16,6 +16,8 @@ sw:
     your_phone_number:
       phone_number: "What’s your phone number? (so we can send you a SMS notification if a match is found)"
     your_search:
+      search_form:
+        type_of_relationship: "Who is he/she?"
       profile_form:
         first_name: "What’s his/her first name?"
         last_name: "What’s his/her last name?"
@@ -24,4 +26,3 @@ sw:
         nickname: "What’s his/her christian's name?"
         country_id: "Which country does he/she come from?"
         place: "Which city does he/she come from?"
-        

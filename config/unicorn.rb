@@ -1,23 +1,32 @@
+# Set the current app's path for later reference. Rails.root isn't available at
+# this point, so we have to point up a directory.
+if ENV.key? 'STACK_PATH'
+  working_directory ENV['STACK_PATH']
+  listen '/tmp/web_server.sock', backlog: 64
+  pid '/tmp/web_server.pid'
+  old_pid = '/tmp/web_server.pid.oldbin'
+  stderr_path "#{ENV['STACK_PATH']}/log/unicorn.stderr.log"
+  stdout_path "#{ENV['STACK_PATH']}/log/unicorn.stdout.log"
+else
+  app_path = File.expand_path(File.dirname(__FILE__) + '/..')
+  working_directory app_path
+  listen app_path + '/tmp/web_server.sock', backlog: 64
+  pid app_path + '/tmp/web_server.pid'
+  old_pid = app_path + '/tmp/web_server.pid.oldbin'
+  stderr_path app_path + '/log/unicorn.stderr.log'
+  stdout_path app_path + '/log/unicorn.stdout.log'
+end
+
 worker_processes Integer(ENV['WEB_CONCURRENCY'] || 2)
 
-working_directory "#{ENV['STACK_PATH']}"
-
-listen "/tmp/web_server.sock", backlog: 64
-
 timeout 30
-
-pid '/tmp/web_server.pid'
-
-stderr_path "#{ENV['STACK_PATH']}/log/unicorn.stderr.log"
-stdout_path "#{ENV['STACK_PATH']}/log/unicorn.stdout.log"
 
 preload_app true
 GC.copy_on_write_friendly = true if GC.respond_to?(:copy_on_write_friendly=)
 
 check_client_connection false
 
-before_fork do |server, worker|
-  old_pid = '/tmp/web_server.pid.oldbin'
+before_fork do |server, _worker|
   if File.exist?(old_pid) && (server.pid != old_pid)
     begin
       Process.kill('QUIT', File.read(old_pid).to_i)
@@ -29,7 +38,7 @@ before_fork do |server, worker|
   ActiveRecord::Base.connection.disconnect! if defined?(ActiveRecord::Base)
 end
 
-after_fork do |server, worker|
+after_fork do |_server, _worker|
   ActiveRecord::Base.establish_connection if defined?(ActiveRecord::Base)
 
   Que.mode = :async
