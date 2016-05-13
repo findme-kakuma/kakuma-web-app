@@ -1,28 +1,28 @@
 sw:
-  your_profile: "Your profile"
+  your_profile: 'It would be better to have “Register” (to be checked with refugees)'
   your_phone_number: "Your phone number"
   your_search: "Who are you looking for ?"
 
   workflow:
     your_profile:
       profile_form:
-        first_name: "What’s your first name?"
-        last_name: "What’s your last name?"
-        father_name: "What’s your father's name?"
-        grandfather_name: "What’s your grandfather's name?"
-        nickname: "What’s your christian's name?"
-        country_id: "Which country do you come from?"
-        place: "Which city?"
+        first_name: "What’s your name ?"
+        last_name: "What’s your last name ?"
+        father_name: "What’s your father's name ?"
+        grandfather_name: "What’s your grandfather's name ?"
+        nickname: "What’s your christian name ?"
+        country_id: "Which country do you come from ?"
+        place: "Which city or village do you come from ?"
     your_phone_number:
-      phone_number: "What’s your phone number? (so we can send you a SMS notification if a match is found)"
+      phone_number: "What’s your phone number ? (so we can send you a text message notification if a refugee is found)"
     your_search:
       search_form:
-        type_of_relationship: "Who is he/she?"
+        type_of_relationship: "Who is he/she ?"
       profile_form:
-        first_name: "What’s his/her first name?"
-        last_name: "What’s his/her last name?"
-        father_name: "What’s his/her father’s name?"
-        grandfather_name: "What’s his/her grandfather’s name?"
-        nickname: "What’s his/her christian's name?"
-        country_id: "Which country does he/she come from?"
-        place: "Which city does he/she come from?"
+        first_name: "What’s his/her name ?"
+        last_name: "What’s his/her last name ?"
+        father_name: "What’s his/her father’s name ?"
+        grandfather_name: "What’s his/her grandfather’s name ?"
+        nickname: "What’s his/her christian name ?"
+        country_id: "Which country does he/she come from ?"
+        place: "Which city or village does he/she come from ?"

@@ -4,14 +4,13 @@
       %h3 What ? Why ?
   .container
     %p
-      Rejoignez les autres utilisateurs de l'application afin de retrouver plus
-      facilement vos proches. Pour cela, rien de plus simple: il suffit de
-      cliquer sur le lien ci-dessous et de vous laisser guider dans les étapes
-      de création de votre profile.
+      Join the other people of this search app and find your loved ones back
+      much easier. Quick, simple and safe: click on this button and follow the
+      steps.
     %p
-      Avant tout, merci de prendre connaissance des
-      = link_to "Conditions Générales d'Utilisation", '#', data: { toggle: "modal", target: "#tosModal" }
-      \.
+      Please note and accept our
+      = link_to 'Terms and Conditions', '#', data: { toggle: "modal", target: "#tosModal" }
+      , thank you.
 
     = link_to 'next', next_wizard_path,
               class: 'btn btn-default pull-right btn-lg btn-success'
@@ -22,7 +21,7 @@
       .modal-header
         %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
           %span{"aria-hidden" => "true"} ×
-        %h4#tosModalLabel.modal-title Terms of Service
+        %h4#tosModalLabel.modal-title Terms and Conditions
       .modal-body
         = render partial: 'shared/tos'
       .modal-footer
